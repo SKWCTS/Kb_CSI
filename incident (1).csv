@@ -1,0 +1,496 @@
+"number","short_description","close_notes"
+"INC0666404","[P-2605860] Business Events Processing Stopped from 05:00 AM to 05:20 AM","Root cause:
+The root cause is not explicitly identified in the provided incident details. The incident notes indicate that business events processing stopped, and a callout to L2 was raised to investigate and restart the affected application. However, the resolution activity mentions that business events 6 had not stopped processing, implying the issue may have been resolved without identifying a specific root cause. 
+
+Resolution steps:
+- Raised a callout to L2 to investigate the issue and restart the affected application.
+- Monitored the situation, as indicated by the work note stating that business events 6 had not stopped processing, leading to the conclusion that the issue was resolved."
+"INC0666357","[P-2605852]  Failure rate increase from 6:44?PM UTC","Root cause:
+The failure rate spike is caused by reservation search calls failing, with a majority of calls related to a specific basket. 
+
+Resolution steps:
+- Identified that the failure rate increase is due to reservation search call failures, particularly for a specific basket."
+"INC0665869","[P-2605847] No Booking with Payment from 09:30 AM to 09:45 AM","Issue Summary : No Booking with Payment for the hotels BRAMUL and COLALB.
+
+Solution Provided : Hotel BRAMUL has no availability until October 1 due to a full refurbishment, as confirmed by Comm Ops. A test PayNow booking for arrival on October 2 was completed successfully without any issues, which aligns with the expected behavior. Comm Ops also confirmed that Hotel COLALB has been closed for bookings starting May 27. Hence both hotels, BRAMUL and COLALB, have been added to the exclusion list for the alert, and no further actions are required. The incident is therefore considered resolved.
+
+Related Tickets : NA"
+"INC0665835","[P-2605846] Marketing Access Token Error from 07:49 AM to 08:17 AM","Root cause:
+Invalid token in Redis cache impacting the marketing-service-opera Kubernetes workload 
+
+Resolution steps:
+- Raised callout to L2 to clear the invalid token from Redis cache, enabling the system to fetch a new token
+- Updated the cache after L2 intervention
+- Closed the ticket following resolution"
+"INC0665824","[P-2605843] On-Demand Jobs Finished Abnormally from 07:00 AM to 07:30 AM","Root cause:
+On-Demand Refresh scheduled jobs finished too quickly, resulting in more than 50% of active jobs completing before 2AM UTC. 
+
+Resolution steps:
+- Ran On-Demand (OD) jobs for all affected dates to address the abnormal completion."
+"INC0665633","[P-2605839] [Distribution Problem] generic.server.exception in DC from 01:42 AM to 01:47 AM","Root cause:
+A spike in Oracle response times and error rates led to generic.server.exception in DC availability. 
+
+Resolution steps:
+- Investigated the spike in Oracle response times and error rates observed around the time of the incident.
+- Identified the correlation between the spike and the occurrence of generic.server.exception in DC."
+"INC0665207","[P-2605821] Response time degradation in github.com and distribution-config-server-service: EnvironmentController from 12:51 PM to 02:01 PM","Issue Summary : Response time degradation in github.com and distribution-config-server-service: EnvironmentController from 12:51 PM to 02:01 PM, 27th May.
+
+Solution Provided : These errors occur because actuator refresh calls are failing intermittently when attempting to retrieve configurations from the EnvironmentController component of the distribution-config-server-service. Some failures are caused by unauthorized access errors, while others result from read timeouts due to slow response from github. Importantly, there is no impact on the customer journey. No further actions required and hence resolving the incident.
+
+Related Tickets : NA"
+"INC0665114","PIB DE - Log-in issue   Comp.ID: 1972979242 / Walter Schneider GmbH & Co.KGus","As per Caller confirmation user able to login after adding profile in Auth0. Hence closing this incident"
+"INC0664503","DE - Digital - PI.com -  guests informed us that they were trying to book on our website but couldn't. In one case, the credit card was even charged","issue summary :   guests informed us that they were trying to book on our website but couldn't. In one case, the credit card was even charged
+solution provided : During investigation, we identified that on 26 May, reservations for Hotel Berlin City Wilmersdorf were not confirmed due to an error encountered while sending deposit folios for hotelId = BERWIL.
+This led to an Opera room checkout error between 08:44 AM BST and 09:31 AM BST, during which PayNow reservations were not confirmed.
+Under incident INC0664460, the HMS team implemented a workaround, after which the issue was resolved. Post-fix, test bookings for PayNow reservations were performed successfully, confirming that the hotel booking was functioning as expected
+Parent incident : INC0664460"
+"INC0664446","[P-2605765] No Booking with Payment from 8:30?AM UTC","Issue Summary : No Booking with Payment for the hotel SHEBAR.
+
+Solution Provided :  All rates are restricted from May 26 to September 1 due to site maintenance, leaving the hotel SHEBAR under CTB with no resolution timeline yet. A PayNow booking test for SHEBAR hotel for arrival date of September 11 was successful. To prevent false alerts, SHEBAR will be added to the exclusion list until operations resume. Hence resolving the incident.
+
+Related Tickets : NA"
+"INC0664310","[P-2605740]  Failure rate increase from 1:48?AM to 2:21 AM UTC","we observed failure rate is primarily caused by incoming requests targeting the invalid endpoint /gb/. Additionally, analysis shows that a significant portion of these requests originate from the client IP address 18.168.180.137, which is contributing to increase in failure rate.
+ "
+"INC0664089","[P-2605729] Marketing Access Token Error from 03:41 PM to 04:05 PM","Issue Summary : [P-2605729] Marketing Access Token Error from 03:41 PM to 04:05 PM, 25th May.
+
+Solution Provided : We noticed increase in errors on marketing service between 03:40 ?PM to 03:50 PM BST, 25th May 2026. The errors were due to ""CDH Exception - Unauthorized. Access token is missing or invalid."" with a 401 response. As an agreed workaround, the faulty token was evicted from the Redis cache to mitigate the issue. Post which the errors stopped and the service failure rate was back to normal. No further actions required. CTECH-3878 has been raised for the fix from Engg team. Hence resolving the incident.
+
+Related Tickets : CTECH-3878
+"
+"INC0664083","[P-2605728] [Distribution Problem] Spike in Distribution Errors from 03:10 PM to 03:16 PM","Issue Summary : [P-2605728] [Distribution Problem] Spike in Distribution Errors from 03:10 PM to 03:16 PM, 25th May.
+
+Solution Provided : During the issue window, the errors (Pre?Allocated Room is Not Ready, Kiosk Interface Not Currently Available -retry,  Invalid reservation numbers) that spiked were identified as acceptable and can be safely ignored in the alert query. We have now adjusted the alert configuration to ensure these business?known errors are excluded, preventing false alerts in the future. Hence resolving the incident.
+
+Related tickets : NA"
+"INC0663961","[P-2605723] No Booking with Payment from 9:30?AM UTC","Issue Summary :  No Booking with Payment for the hotel DATLCF
+
+Solution Provided : DATLCF – Dartmouth is an NSO hotel that has not yet gone live for bookings. It is currently in the setup phase, which is why no reservations (with or without payments) have been created so far. We have included this hotel in the exclusion list to avoid such false trigger until the hotel is fully live. Hence resolving the incident,
+
+Related Tickets : NA"
+"INC0663042","[P-2605683] Drop in Bookings during Business Hours from 02:30 PM to 03:05 PM","Hi Team, As these incidents were triggered during Non Business hours and the drop is expected during the Weekends as the user sessions are reduced. 
+
+Hence closing this incident. 
+
+Thank you,
+Sundar M"
+"INC0662902","[P-2605681]  Failure rate increase from 9:09?AM UTC","Hi Team, these errors are due to invalid basket reference is being hit by the bot and there is no business impact on it. 
+
+Hence closing this incident.
+
+Thank you,
+Sundar M"
+"INC0662853","[P-2605679] Drop in Bookings during Business Hours from 8:30?AM UTC","Hi Team, As these incidents were triggered during Non Business hours and the drop is expected during the Weekends as the user sessions are reduced. 
+
+Hence closing this incident. 
+
+Thank you,
+Sundar M"
+"INC0662822","[P-2605675] Drop in Bookings during Business Hours from 7:30?AM UTC","Hi Team, As these incidents were triggered during Non Business hours and the drop is expected during the Weekends as the user sessions are reduced. 
+
+Hence closing this incident. 
+
+Thank you,
+Sundar M"
+"INC0662697","Price mismatch observed between SRP and HDP for multiple hotels and rate plans.","Issue Summary : Price mismatch observed between SRP and HDP for multiple hotels and rate plans on 22nd May.
+Solution Provider:We noticed that there was price mismatches between SRP and HDP for the hotels LONSMI, GLASTA, CARNOR, LONARC, MANSPI, LONSTM. AvCache DB was not being updated with the latest updates and hence SRP prices were showing some mismatches. Further Ondemand job was run for all the 6hotels for 375days from today. Post which, the latest Opera prices (HDP) got updated to the AvCache DB prices (SRP). This resolved the price discrepancies. In the next occurrence, we will try to deep dive on the discrepancies. Hence resolving the incident.
+Parent Incident:INC0541949
+
+"
+"INC0662653","Delay in business events processing - 22nd May 2026","Issue Summary : Delay in business events processing - 22nd May 2026.
+
+Solution Provided : From the ATE report, we noted that ~0.92M messages were triggered due to overnight ATE changes. During monitoring, delays were observed in streaming business events (Summary totals, Apply daily rates, Rate restrictions), which caused discrepancies between SRP and HDP and risked inconsistent pricing and availability. A solution has already been proposed under parent ticket INC0642990 / CTECH-9462, and we are awaiting a development fix from the respective team. As of 11:00 AM UK time on 25 May 2026, no delays in processing business events are observed. Hence resolving the incident.
+
+Related Tickets : INC0642990 / CTECH-9462"
+"INC0662580","Price mismatch observed between SRP and HDP for multiple hotels and rate plans.","Issue Summary : Price mismatch observed between SRP and HDP for multiple hotels and rate plans.
+Solution provided : We noticed that there was price mismatches between SRP and HDP for the hotels CARBAR, LONWAT, BRIBAR, HEAPTI, LONHAY, SLOWES, DONTAB, EDINEW. AvCache DB was not being updated with the latest updates and hence SRP prices were showing some mismatches. Further Ondemand job was run for the 8 hotels for 375days from today. Post which, the latest Opera prices (HDP) got updated to the AvCache DB prices (SRP). This resolved the price discrepancies. In the next occurrence, we will try to deep dive on the discrepancies. Hence resolving the incident.
+Related Ticket (master incident/change request/ problem) :INC0541949"
+"INC0662547","[P-2605665]  Unexpected low traffic from 7:53?AM UTC","The requests failed because the system could not find a valid basket for the given reference, resulting in a 400 Bad Request error."
+"INC0662532","[P-2605664] [Problem] High number of 5xx Errors from Content Entity Service from 7:54?AM UTC","This is due to the invalid combination of country and language. Hence closing this incident"
+"INC0662462","[P-2605655] Drop in Availability for HTTP Monitors from 11:40?PM to 12:00 AM UTC","Hi Team, as per the intial analysis we found that the getAddressesByPostcode and getFormattedAddress, took more than 10 secounds to respond and we had a failure due to that. Hence we see the drop in availability.
+
+The systems have returned back to it original state after 10 minutes and we could see success for the subsequent calls.
+
+Thank you,
+Sundar M"
+"INC0662233","DE - Digital - CCUI - Guest booked two rooms -> STUBAD // 01.-03.07.2026 // 1 FMTHRE (1 adult, 1 child)","Resolved due to no response"
+"INC0662177","PROD - Opera - DE - HEIBRO. - Confirmation Number 2509511450 Showed cancel on Website but gets back to active later. ","Resolved due to no response"
+"INC0662107","[P-2605627] [Problem] Marketing Access Token Error  from 8:11?AM UTC","Token refreshed , Problem resolved after token refresh"
+"INC0662084","[P-2605622] [Problem] High number of 5xx Errors from Content Entity Service from 7:11?AM UTC","Hi Team, 
+
+As we see most of the calls are due to the closed hotels, Hence we get this error. Other urls are operational and there is no impact in booking or revenue. Hence closing this incident. 
+
+Thank you,
+Sundar M"
+"INC0662009","[P-2605621] [Problem] High number of 5xx Errors from Content Entity Service from 5:29?AM UTC","Issue Summary :  High number of 5xx Errors from Content Entity Service from 5:29?AM UTC.
+Solution provided : As we see most of the calls are due to the closed hotels, or for NSO's for which opening date is 1 july. Hence we get this error. Other urls are operational and there is no impact in booking or revenue. Hence closing this incident. 
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0661779","[P-2605616]  Response time degradation from 11:02?PM UTC","Issue Summary : Response time degradation from 11:02?PM UTC
+Solution provided : During the mentioned time frame, several calls to the endpoint
+/csp/sql/OTA.AP.AvailService.cls experienced response times above the established baseline. Despite the latency, the API consistently returned HTTP 200 OK status codes, indicating successful execution. The issue was transient in nature and resolved automatically after some time without requiring manual intervention.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0661611","[P-2605612] Business Events Processing Stopped from 4:45?PM to 5:05 PM UTC","The last process from availability-business-events-service-opera-4 was recorded at 04:20PM. Following a restart, events have resumed flowing normally."
+"INC0661511","[P-2605603] Business Events Processing Stopped from 12:00?PM UTC","The last process from availability-business-events-service-opera-5 was recorded at 12:38 PM. Following a restart, events have resumed flowing normally."
+"INC0661430","[P-2605599] Drop in Bookings during Business Hours from 9:30?AM UTC","Issue Summary : Drop in Bookings during Business Hours from 9:30?AM UTC
+Solution provided : There is a slight drop in bookings and revenue compared to previous week. The reservations during the affected window (09:30 - 11:00 UK time) for this week and previous week visit count looks similar. No major errors or issues noticed across the major services KPI. The payment conversion looks healthy and no spikes in the declines across all cards. Other major services are not having any latency./ error spike.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0661409","[P-2605597] No Booking with Payment from 8:30?AM UTC","The location DOVDUK is approaching its disposal date."
+"INC0661407","Guest Support CC - Premier Inn Website","This is a known issue observed during the reservation amendment process. Rate fetch and pricing update are being triggered unnecessarily, even when there are no changes to stay dates, room type, or any rate-impacting attributes.
+A JIRA ticket has already been raised to address this bug. Further tracking and updates will continue under the associated parent ticket.
+Please refer to the attached JIRA ticket and parent ticket for detailed information and ongoing follow-up.
+
+Incident - INC0658551
+JIRA- https://whitbreadis.atlassian.net/browse/CTECH-9273"
+"INC0661378","[INFRA-1636] [P-2605593]  Failure rate increase from 6:36?AM UTC","As this issue has been logged to CE team via Infra ticket, hence closing this incident. 
+
+INFRA ticket:  https://whitbreadis.atlassian.net/browse/INFRA-1636"
+"INC0661320","[INFRA-1633][P-2605570] [Problem] High number of 5xx Errors from Content Entity Service from 4:13?AM UTC","As this is being investigated by the CE team through Infra ticket, We are closing this incident.
+
+INFRA ticket: https://whitbreadis.atlassian.net/browse/INFRA-1633"
+"INC0661276","[P-2605566] [Problem] High number of Payment Webhook Declines from 2:04?AM UTC","As systems have retured to normal state, we are closing this incident"
+"INC0661084","[P-2605562]  Failure rate increase from 4:08?PM UTC","As there is no business impact, We are closing this incident. Thank you, Sundar M"
+"INC0660995","[P-2605554] [Problem] Marketing Access Token Error  from 2:09?PM to 2:39 PM UTC","Token refreshed"
+"INC0660905","Stored Card Payment journey doesn't work","Resolved due to no response"
+"INC0660883","Price mismatch observed between SRP and HDP for a single hotel and rate plan on 19th MAY","Issue summary: Price mismatch observed between SRP and HDP for a single hotel and rate plan on 19 thMAY
+Solution provided: We noticed that there was price mismatch between SRP and HDP for the hotel GATTHY . AvCache DB was not being updated with the latest updates and hence SRP prices were showing some mismatches. Further Ondemand job was run for the hotel (GATTHY) for 375days from today. Post which, the latest Opera prices (HDP) got updated to the AvCache DB prices (SRP). This resolved the price discrepancies.
+Parent Incident : INC0541949
+"
+"INC0660868","Fwd:[PIN-QYJI]-[] [AMR] CreateRes__SwitchLogsMonitorWarn","Issue Summary : I am reaching out regarding a failed CreateRes logs we recieved recently. The error recieved was ""(08)PRIOR STAY - Arrival Must not be Before Today"", however, the reservations were not made for a date in the past. 
+
+Solution Provided : We were unable to reproduce the reported issue when posting availability requests using the same parameters provided by partner SHIJI. The availability responses are functioning as expected. Additionally, the caller confirmed that the problem was related to their card. Hence resolving the incident as confirmed by the caller.
+
+Related Tickets : NA"
+"INC0660448","[P-2605514]  Response time degradation from 10:00?PM UTC","Closing this incident as there is no business impact."
+"INC0660350","[P-2605509] Business Events Processing Stopped from 7:45?PM UTC","As we don't see any failure we are closing this incident. "
+"INC0660262","Digital - Business - Issues with website freezing / timing out","Resolved due to no response"
+"INC0660059","[P-2605500] High number of 5xx Errors from Content Entity Service from 06:27 AM to 09:18 AM","As this is a known issue and these are invalid request sent from the upstream systems. Hence closing this incident. "
+"INC0660028","INC0660028 |   London Sidcup [Premier Inn] | BFQP02 | Kiosk - Payments - stuck on payment screen of -£.6.00 cant remove it as guest has check in on the desk","This is a known issue. The problem happens because the account shows a negative balance, likely due to the API process, which is causing payment failures.
+We already have a ticket raised with the WB-Digital-Kiosks team for this issue. This issue will be tracked under the parent ticket-INC0633933. Hence, marking this as a duplicate and closing."
+"INC0659973","UK- BIRCOL || PROD - Opera - CCUI changing Price for existing reservation when amending guest names, the price increase was added by Opera. ","This is a known issue observed during the reservation amendment process. Rate fetch and pricing update are being triggered unnecessarily, even when there are no changes to stay dates, room type, or any rate-impacting attributes.
+A JIRA ticket has already been raised to address this bug. Further tracking and updates will continue under the associated parent ticket.
+Please refer to the attached JIRA ticket and parent ticket for detailed information and ongoing follow-up.
+
+Incident - INC0658551
+JIRA- https://whitbreadis.atlassian.net/browse/CTECH-9273"
+"INC0659748","[P-2605456] Drop in Availability for HTTP Monitors from 10:20 AM to 10:40 AM","The failure was reported for the service address-lookup-entity-service:AddressLookupController via GQL but while checking, the service was good and there was no failures observed on the service and the throughput also was good. There was no failures observed on the address look up related activities during health check. The alert resolved by itself. Hence as of now we are closing this ticket from our end. 
+ "
+"INC0659549","DE - PIB - Amendment / Unexpected Rate Increase on email adress change   Comp ID: 	","This issue will be tracked under the parent ticket. Hence, marking this as a duplicate and closing."
+"INC0659441","[Alert] Observed spikes in Snowdrop PI.com Calls between 07:45 AM to 08:25 AM","We could see there is high number of request count during that time frame for autoComplete calls but all calls were successful without any high response time (response time is less than 500 ms). Only 2 calls were taken more than 1 second. There was no any issue observed with BE and FE services during issue window. "
+"INC0659357","[P-2605416] Opera Deposit Folio Errors from 09:00 AM to 09:15 AM","This is a known issue where Pricing inconsistencies are occurring for Meal Deal Flex rates during the booking process. This is being further tracked under the JIRAhttps://whitbreadis.atlassian.net/browse/CTECH-6101
+
+Response body: {type=Bad Request, title=A balance exists, cannot generate a Folio, detail=A balance exists, cannot generate a Folio, o:errorCode=FOF00386, instance=HEAFOU-null, language=en}""
+"
+"INC0659176","PROD|UK-EDIROS||Opera - available rooms from opera not showing on premier inn website","Resolved due to no response"
+"INC0659004","Digital - Business - Amending names increased booking price","We will continue to track this ticket under the parent ticket, as an Engineering bug fix ticket has been requested.
+Hence, we are proceeding with closing this incident."
+"INC0658993","Digital - Business - Amending names has increased booking price","We are investigating this issue under parent incident- INC0658551. The JIRA ticket is created for this - https://whitbreadis.atlassian.net/browse/CTECH-9273"
+"INC0658855","[P-2605368] On-Demand Jobs Finished Abnormally from 07:00 to 07:30 AM","All Job threads were finished successfully and there was no errors observed."
+"INC0658854","[P-2605367] Drop in Availability for Restaurants from 07:00 AM to 07:49 AM","The Alert was triggered during release.
+As per the release plan we have scaled down and Scaled Up and Jobs except meta jobs as the meta jobs has already started its scheduled run. We waiting for that to complete. The traffic switch was pending to perform due to the meta job. Once we started receiving the problems we switched the traffic and resolved the issue. Later meta jobs also scaled down and Scaled up. Health check was performed and confirmed the issue has got resolved.
+
+No issues observed with the applications. All Restaurant websites are loading fine and slots are available. "
+"INC0658847","[P-2605361]  [frontend availability] SLO for premier-inn:premier-inn alert from 5:06?AM UTC","This issue created during release window. After switching the traffic from wanda to hulk , issue got resolved. Thanks"
+"INC0658846","[P-2605349]  Failure rate increase from 4:59?AM UTC","The Alert was triggered during release.
+As per the release plan we have scaled down and Scaled Up and Jobs except meta jobs as the meta jobs has already started its scheduled run. We waiting for that to complete. The traffic switch was pending to perform due to the meta job. Once we started receiving the problems we switched the traffic and resolved the issue. Later meta jobs also scaled down and Scaled up. Health check was performed and confirmed the issue has got resolved."
+"INC0658842","[P-2605365] [Critical] - PI SRP Very High Failure Rate from 5:11?AM UTC","The Alert was triggered during release.
+As per the release plan we have scaled down and Scaled Up and Jobs except meta jobs as the meta jobs has already started its scheduled run. We waiting for that to complete. The traffic switch was pending to perform due to the meta job. Once we started receiving the problems we switched the traffic and resolved the issue. Later meta jobs also scaled down and Scaled up. Health check was performed and confirmed the issue has got resolved."
+"INC0658839","[P-2605362] Drop in Availability for HTTP Monitors from 5:10?AM UTC","The Alert was triggered during release.
+As per the release plan we have scaled down and Scaled Up and Jobs except meta jobs as the meta jobs has already started its scheduled run. We waiting for that to complete. The traffic switch was pending to perform due to the meta job. Once we started receiving the problems we switched the traffic and resolved the issue. Later meta jobs also scaled down and Scaled up. Health check was performed and confirmed the issue has got resolved."
+"INC0658838","[P-2605360] [Distribution Problem] Spike in Distribution Errors from 5:06?AM UTC","The services have recovered and those are intermittent spikes. Hence closing this incident"
+"INC0658837","[P-2605359] Browser monitor global outage from 5:07?AM UTC","We are checking this issue under parent incident - INC0658832. Hence closing this incident"
+"INC0658836","[P-2605358] [Problem] 100% Failure Rate Increase from 5:06?AM UTC","The Alert was triggered during release.
+As per the release plan we have scaled down and Scaled Up and Jobs except meta jobs as the meta jobs has already started its scheduled run. We waiting for that to complete. The traffic switch was pending to perform due to the meta job. Once we started receiving the problems we switched the traffic and resolved the issue. Later meta jobs also scaled down and Scaled up. Health check was performed and confirmed the issue has got resolved.
+"
+"INC0658834","[P-2605356] Browser monitor global outage from 5:03?AM UTC","We are checking this issue under parent incident - INC0658832. Hence closing this incident"
+"INC0658832","[P-2605351] Browser monitor global outage from 5:00?AM UTC","This issue created during release window. After switching the traffic from wanda to hulk , issue got resolved. Thanks"
+"INC0658636","Guildford North (A3) Premier Inn is showing as 8.82 miles from Guildford, UK whe","Issue Summary : Guildford North (A3) Premier Inn is showing as 8.82 miles from Guildford, UK whe
+Solution provided : The content team has updated the coordinates; hence, closing this incident.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0658529","Price mismatch observed between SRP and HDP for a single hotel and rate plan on 13th MAY","Issue Summary : Price mismatch observed between SRP and HDP for multiple hotels and rate plans on 13th MAY
+Solution Provided: We noticed that there were price mismatches between SRP and HDP for the hotels LEEWHI. AvCache DB was not being updated with the latest updates and hence SRP prices were showing some mismatches. Further Ondemand job was run for the 2 hotels for 375days from today. Post which, the latest Opera prices (HDP) got updated to the AvCache DB prices (SRP). This resolved the price discrepancies. In the next occurrence, we will try to deep dive on the discrepancies. Hence resolving the incident.
+Related Tickets : INC0541949"
+"INC0658500","CCUI changing Price for existing reservation when ammending guest namesWe just","We are currently investigating this issue under the parent incident INC0658551. A corresponding JIRA ticket has been created: CTECH-9273 (https://whitbreadis.atlassian.net/browse/CTECH-9273).
+All duplicate incidents related to this issue are being closed, and only the parent incident will remain open for further tracking and updates."
+"INC0658496","PIB - Amendment / Unexpected Rate Increase on Guest Name Change   Comp ID:  85","We are investigating this issue under parent incident- INC0658551. The JIRA ticket is created for this - https://whitbreadis.atlassian.net/browse/CTECH-9273"
+"INC0658450","PIB - Login not possibleWe received several complaints from users that PIB log","This issue was caused by an ongoing MI. The user was unable to log in using the PIB account due to Akamai blocking the CDH Premier Inn domain.
+The issue has now been resolved, and the user has confirmed that the login is working as expected."
+"INC0658447","[P-2605312]  Browser monitor global outage from 8:03?AM UTC","This alert is triggered due to issue with PIB login issue which already raised as  booking drop alert  under INC0658433. New range of Auth0 Ip address were considered as unknown bots and blocked at Akamai side. Further updates can be tracked under INC0658433 as the issue is resolved now."
+"INC0658438","Digital - Business -","We already have incident(INC0658433) opened to investigate this issue and identify the RCA.  This can be further tracked under INC0658433, hence closing this ticket as duplicate and more over the issue is resolved and the same confirmed by the caller."
+"INC0658432","[P-2605314] No Booking with Payment from 8:30?AM UTC","All the hotels(HAECEN, KONFUE, MANNCQ) mentioned here are part of NSO. Hence it is expected to not having any payment made for these hotels. Currently it is excluded in the alert to reduce the false alert."
+"INC0658428","Digital - CCUI - My CCUI is no longer accepting booking numbers and I can't open any bookings. I keep getting a technical error message: ""We cannot access any b","Resolved due to no response"
+"INC0658423","[P-2605311] [Problem] Marketing Access Token Error  from 7:43?AM UTC","Deleted the expired token and new token got generated and the issue got resolved from 8:53 AM BST. Hence closing this ticket from our end."
+"INC0658412","KOBCLE - RETURING INCORRECT HOTEL CODE ERROR","updated the  config PR with the config changes"
+"INC0658404","[P-2605309] Business Events Processing Stopped from 7:00?AM UTC","availability-business-events-service-opera-4 was stopped receiving events from May 13, 2026 @ 07:36:27.140 No errors were observed and we restarted the service. Resumed receive events from 8:07 AM
+We have a parent ticket for this issue, We shall track this issue further with the parent ticket. Closing this ticket for now.
+
+"
+"INC0658385","[P-2605308] On-Demand Jobs Finished Abnormally from 6:00?AM UTC","The jobs were finished on time without any errors this seems to be a false alert hence closing this ticket with relevant proofs as screenshot."
+"INC0658312","[P-2605296]  Response time degradation from 3:26?AM UTC","This was during Opera change. we informed about this problem in the change call. During this time frame few random requests were taking long time to get the response. This has got resolved during the call itself.  There was no issues observed post release hence closing this ticket"
+"INC0658305","[P-2605300]  [Trend Deviation] - High Opera Hotel Availability Response times from 3:38?AM UTC","Resolution notes copied from Parent Incident: Issue : Unable to complete EOD End of day error ""Error occurred while executing user defined procedure HOUSEKEEPING.COMPLETE_ALL_OPEN_TASKSHEETSORA-06550:""
+Troubleshooting performed : Up on reviewing Opera EOD status, the business date had changed to current business date, but 12th May EOD steps were not completed. This issue was reported by multiple site where INC0658203 being made as parent issue. 
+
+Resolution Notes: An SR raised with Oracle with SR 260513-000270 as this could be because of Opera version update to 25.5.5.1.
+
+Issue resolved by Oracle
+"
+"INC0658197","[P-2605290]  Failure rate increase from 12:37?AM UTC","There was intermittent failures in calls to github.com for distr config was was failing  on first attempt but getting response on subsequent runs
+There is no impact with this. Hence closing this ticket. 
+
+"
+"INC0658160","[P-2605267] Http monitor global outage from 12:29 AM to 12:30 AM UTC","We checked and confirmed the issue  looks like it was a real failure.  No action if it was a one-off, but if you see more failures like this with no response, then a manual test is wise.  
+As this recovered by itself, we are closing this ticket from our end for now. "
+"INC0658120","[P-2605255]  Failure rate increase in basket-service:PaymentController  from 11:00?PM to 11:36 PM UTC","The issue was happened due to some issue from Planet side and we have a master ticket INC0658104 for this issue. We transferred the parent to Planet team to update further root cause analysis, We shall track the issue with parent ticket and shall close this ticket from our end for now."
+"INC0657915","Hello,I am a Software Engineer at Click Travel. I'd like to bring an odd cancellation scenario to your attention that requires your technical team's assistanc","NO Response from caller on requested Data"
+"INC0657880","DE - Digital - Business - PIB - error on payment page   ","Issue Summary : DE - Digital - Business - PIB - error on payment page   
+Solution provided : During the investigation conducted with Planet, it was identified that the booking failed due to a ""ThreeDSecureError – ACS technical issue.""
+This error is associated with a technical problem at the bank's Access Control Server (ACS) during the 3D Secure authentication process. Therefore, the issue is not related to the digital booking journey, but rather to the external payment authentication system.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0657873","DE - Digital - CCUI - CCUI sets wrong room type for bookings","Issue Summary: DE - Digital - CCUI - CCUI sets wrong room type for bookings
+Solution Provided: The caller has agreed to raise a new incident if any issues occur in future"
+"INC0657852","DE - Digital - CCUI - CCUI does not show reservation","issue summary : DE - Digital - CCUI - CCUI does not show reservation
+solution provided :  we have repushed  the provided bookings after that reservation are visible in the manage booking section in CCUI
+parent incident : NA"
+"INC0657850","Premier Inn employee offer page is showing only option to do 'Pay on Arrival', app is showing both Pay on Arrival, and Pay Now. Completed a booking for Lichfiel","Resolved due to no response"
+"INC0657848","Customer inputted a dinner allowance into Direct Connect but this did not appear on Opera - BFF5128773","Resolved due to no response"
+"INC0657821","[P-2605250] [Distribution Problem] Payment Tokenization Failure Monitor from 1:00?PM UTC","We see there are around 7 failures at 01:59 PM UK time which breached the threshold of more than 5 error in 5 minutes resulted in the alert. 3 more errors between 02:08 PM and 02:12 PM. No further errors observed post 02:12 PM. We responded partner with proper response so they retry and complete the booking. Considering the alert just breached the threshold and nothing abnormal in terms of blocking the partners from making the booking, resolving it. 
+"
+"INC0657816","The Deutsche Bahn travel agency has now also reported that cancellations via Onesto are no longer working.","Resolved due to no response"
+"INC0657683","Digital - Business - incorrect dates for bookings","Issue Summary : User is seeing incorrect dates for booking due to being abroad .
+
+Solution Provided :  The booking AUZ6145689 was created with an arrival date of 16 May 2026 and a departure date of 17 May 2026 for the hotel London Hampstead (LONHMP). While all backend systems (Opera, CDH, payment APIs) correctly reflect these dates, the CCUI manage booking screen displays them based on the userDateTime field, which ties to the user's system timezone.  When bookings are made, the dates display correctly in the UK timezone (UTC+1), but when viewed from a US timezone (UTC?6) the dates appear shifted earlier by one day.  The issue is related to how the userDateTime field is being handled. This happens because the system is interpreting booking dates as full timestamps with timezone offsets, rather than fixed calendar dates. As a result, locations ahead of UTC (like the UK) show the expected dates, while locations behind UTC (like the US) show them preponed.
+
+We have CTECH?5245 linked to parent incident INC0596374 for further triage and investigation.
+
+Related Tickets : INC0596374 / CTECH?5245"
+"INC0657671","FW: Fehlermeldung Premier Inn Berlin City Spittelmarkt (OBJId 681287)","Issue Summary : Since May 5th, CRC is not able to book for the hotel BERSPI via AMADEUS channel.
+
+Solution Provided : The configuration was updated incorrectly in the hotels.yaml file, with the same ThreeCharCode (DCE) assigned to both hotels BERSPI and KOBCLE.
+As a mitigation, a pull request was successfully merged to update the configuration for hotel BERSPI to use ThreeCharCode: DCA. Following this change, successful responses are now being triggered for BERSPI. This has been linked to the parent incident INC0658412 for further details.  Hence resolving the incident as confirmed by the caller over the teams chat.
+
+Related Incidents : INC0658412"
+"INC0657662","UK | CANDOV | Digital - Business - unable to view bookings","User can now view bookings"
+"INC0657647","Hi Lauren, Hi Callum, I hope you both had a nice weekend.I am reaching out because we have a couple of points we would like to discuss in a call this week i","Root cause:
+The functionality to turn upgraded room types on/off by user was broken, causing standard and upgraded room types to be returned. This resulted in partners booking these with VCC funds for the standard price, leading to payment failures on arrival. 
+
+Resolution steps:
+- The fix under CHG0047856 was successfully deployed on 22nd April, resolving the issue.
+- Efforts are underway to extract bookings for affected partners (with upgrade room flag set to false) from February to 22nd April, though limitations in Dynatrace and Kibana restrict data retrieval beyond 20 days.
+- Alternative extraction via OPERA is being explored, and the team is actively progressing with this and will share updates soon.
+The data was finally exported from OHRA and shared with the caller"
+"INC0657624","[P-2605246]  Failure rate increase from 6:04?AM UTC","Increased in failure rate is due to calls coming for the hotel Manchester-Altrincham (ALTGEO), which has already been closed."
+"INC0657619","[P-2605245] On-Demand Jobs Finished Abnormally from 6:00?AM UTC","Error ""@timestamp"": ""2026-05-12T02:24:01.880998851+01:00"",
+""@version"": ""1"",
+""message"": ""Operator called default onErrorDropped"",
+""level"": ""ERROR"",
+""logger_name"": ""reactor.core.publisher.Operators"",
+""thread_name"": ""OnDemandRefreshScheduler_Worker-3""
+
+ondemand job 3(a) thread completed within 1hour for the dates 08-03-2027 to 07-04-2027 which led to 7jobs completed within 3am BST(2am UTC)
+ondemand 3(b) completed by 40min because for the dates 07-05-2027 to 22-05-2027"
+"INC0657453","[P-2605236] Business Events Processing Stopped from 12:45?AM to 1:20 AM UTC","availability-business-events-service-opera-6 Stopped processing from
+May 12, 2026 @ 00:13:15.550. There was no errors observed and we restarted the service and it resumed to receive events from 01: 00 AM
+We have similar issues in the past as well and we tracking the issue with the parent incident INC0642990. Tagging this as a child to that one and closing this ticket from our side."
+"INC0657374","[P-2605232]  Failure rate increase in basket-service:PaymentController from 10:28?PM to 10:59 PM UTC","There was intermittent failures happened due to the error
+Exception class?uk.co.whitbread.basket.domain.exception.PaymentFraudException
+Message?A fraud check was triggered and no payment has been made. Payment status from threec is FAILURE
+This has got auto resolved without much impact to customers."
+"INC0657240","[P-2605230] Failure rate increase in reservations-manager-entity-service: BookingController from 04:34 PM to 05:38 PM","We have a parent ticket exists for this issue which is with Infose to confirm further on this. Can be further tracked under INC0657631 to understand the reason for not getting denied at akamai even though it is considered as DDos. "
+"INC0657233","Digital - Business - Booking missing","No response from user"
+"INC0657224","PROD|DE - BERAIR||Opera - When the guests are checking in online, Opera showing that they have paid another Deposit","Issue summary: PROD|DE - BERAIR||Opera - When the guests are checking in online, Opera showing that they have paid another Deposit
+Solution provider: Thank you for clarifying. I completely understand the operational impact now—due to the duplicate deposit folio bug originating from the digital side, Opera reflects an incorrect full deposit which prevents the system from prompting for the City Tax during check-in.
+As this underlying technical issue is already being investigated by the Digital Apps team under a parent incident (INC0653565), we will be closing this specific ticket.
+Parent Incident: INC0653565"
+"INC0657057","[P-2605223] No Booking with Payment from 8:30?AM UTC","HAMFIN is the NSO hotel yet to be available for customer. As the content is published from AEM on 
+Friday it was auto added into the alert and consider as no payment made.
+
+As the hotel is not yet LIVE to the customer, it is expected to have no payment and bookings. No further action required on this, we will exclude this hotel from alert. "
+"INC0657040","Price mismatch observed between SRP and HDP for a single hotel and rate plan on 8 MAY","Issue summary: Price mismatch observed between SRP and HDP for a single hotel and rate plan on 8 MAY
+Solution provided: We noticed that there was price mismatch between SRP and HDP for the hotel CARBAY . AvCache DB was not being updated with the latest updates and hence SRP prices were showing some mismatches. Further Ondemand job was run for the hotel (CARBAY) for 375days from today. Post which, the latest Opera prices (HDP) got updated to the AvCache DB prices (SRP). This resolved the price discrepancies.
+Parent Incident: INC0541949"
+"INC0656473","[P-2605207]  Mobile app crash rate increase from 7:57?AM UTC","Root cause:A runtime exception occurred in the Android application due to the system's failure to instantiate an obfuscated ViewModel class (kq.q0), resulting in a NoSuchMethodException for a missing default constructor during lifecycle/ViewModel initialization, potentially triggered via Firebase messaging flow.
+Related Ticket (master incident/change request/ problem) : INC0652188
+"
+"INC0655863","[P-2605186]  Mobile app crash rate increase from 9:23?AM UTC","Root cause:A runtime exception occurred in the Android application due to the system's failure to instantiate an obfuscated ViewModel class (kq.q0), resulting in a NoSuchMethodException for a missing default constructor during lifecycle/ViewModel initialization, potentially triggered via Firebase messaging flow.
+Related Ticket (master incident/change request/ problem) : INC0652188"
+"INC0655853","[P-2605183]  Failure rate increase from 9:04?AM UTC","Root cause:
+The failure rate increase in the hotel-login-service-opera:HotelLoginController was due to invalid requests from external services attempting to connect to the BART Login SOAP service, despite the actual login journey not involving BART endpoints. 
+
+Resolution steps:
+- Cross-checked the login functionality in PIB and PI and confirmed no issues were observed while logging into the application."
+"INC0655830","[P-2605185]  Mobile app crash rate increase from 9:43?AM to 10:21 AM","Root cause:A runtime exception occurred in the Android application due to the system's failure to instantiate an obfuscated ViewModel class (kq.q0), resulting in a NoSuchMethodException for a missing default constructor during lifecycle/ViewModel initialization, potentially triggered via Firebase messaging flow.
+Related Ticket (master incident/change request/ problem) : INC0652188"
+"INC0655695","[P-2605180] On-Demand Jobs Finished Abnormally from 7:00?AM  to 7:30 AM","
+Resolution steps:
+- Re-run the On-Demand job for the affected date range (Start date - 2026-08-07 &amp; end date - 2026-09-06) after observing an abnormal completion time of 3 minutes at 1:08 AM.
+
+OnDemand thread that ran at 1:08 AM completed within 3 minutes for the date range (Start date - 2026-08-07 & end date - 2026-09-06), a manual OnDemand run was triggered for the same period.
+Additionally, the OnDemand thread that ran at 3:03 AM completed successfully, as it covered only 15 days (Start date - 2027-05-04 & end date - 2027-05-19); therefore, no additional OnDemand run was required for those dates.
+"
+"INC0655687","[P-2605179] Business Events Processing Stopped from 6:30?AM  to 6:50 AM","Resolution steps:
+- Restarted the 'availability-business-events-service-opera-4' service to resolve the Business Events Processing Stopped issue."
+"INC0655676","[P-2605177]  Failure rate increase from 01:53?AM to 02:41 AM","The failures are occurring due to a Null Pointer Exception with the message: 'Required request header Authorization for method parameter type String is not present.' This appears to be caused by the user session expiring, which prevents the token from being sent and results in these Auth failures. CTECH-6326 is already created to fix this issue"
+"INC0655665","[P-2605169] Failure rate increase in wb-restaurants-web:next from 10:44 PM to 11:23 PM","Requests are failing due to missing required parameters (e.g., siteId passed as an empty string) and 500 Internal Server Errors caused by upstream dependency failures, specifically connections to external endpoints (e.g., headerdata.json, locations.search.json, bookpagedata.json) being prematurely closed before a response is received."
+"INC0655415","[P-2605165]  Mobile app crash rate increase from 9:17?AM to 10:19 AM","Issue Summary : Mobile app crash rate increase from 9:17?AM to 10:19 AM
+Solution provided : During the specified time frame, we observed that app version 4.34.0 experienced crashes, impacting a total of 26 users so far. It is not failing for all the users, latest version 4.35.0 is working fine.
+Related Ticket (master incident/change request/ problem) : INC0652188
+"
+"INC0655403","DE - PIB - Amendments not possible   Comp.ID: 179461 / Finance & Treasury Services ","Issue summary: DE - PIB - Amendments not possible   Comp.ID: 179461 / Finance & Treasury Services 
+Solution provided: While attempting to amend booking GAP4584757, the operation failed with a generic error message stating ""Something went wrong."" Upon analyzing the application logs, it was identified that the failure is due to a validation error from the downstream system indicating that ""business notes must not be empty."" This validation constraint is preventing the amendment of the booking. This issue has already been raised with the INN Business team via CTECH-869, and it is currently being tracked under the parent incident INC0319955.
+Parent incident: INC0319955"
+"INC0655362","[P-2605161] On-Demand Jobs Finished Abnormally from 7:00?AM to 7:30 AM","Root cause:
+The on-demand jobs finished abnormally due to a connection reset by peer error during communication with the service, as indicated by the error message: reactor.core.Exceptions$ErrorCallbackNotImplemented: org.springframework.web.reactive.function.client.WebClientRequestException: recvAddress(..) failed: Connection reset by peer. 
+
+Resolution steps:
+- Reran the on-demand job for the specified date ranges (e.g., 2026-09-05 to 2026-10-05 and 2027-05-03 to 2027-05-18) to validate functionality.
+- Observed that the job completed successfully after splitting hotels into two parts, resulting in completion within approximately 30 minutes."
+"INC0655236","Re:[## 10231515 ##] CRS SYSTEM ERROR on Booking for PINLONSHR - Please Help To Check","Tagged to parent incident and its with Engineering team"
+"INC0655193","DE-SAACIT||PI App charged twice for the reservation ","This issue is already reported under INC0653565. No need to process any refund to the customer, they paid the correct amount, it is only posting the wrong deposit folio details. This will further checked by the Apps team and can be further tracked under INC0653565"
+"INC0655165","DE | HANHAM | NONFLEX PROD - OPERA - Reservations - Digital - Error - Prepaid via Booking.com, reservation asked for payment again during pre-check-in via app","We are investigating similar issue with Parent Incident INC0653565. We will get update for this issue in INC0653565."
+"INC0654918","[P-2605138]  [Warning] - High Failure Rate in PI SRP  &  PI HDP from 06:21?AM to 07:31 AM","Root cause:
+The high failure rate in PI SRP was triggered by release activities CHG0048122 and CHG0048174 (Promo code validation and Meta search promo rate fix), which caused issues with GraphQL query execution. These changes were subsequently rolled back due to observed problems.
+
+Resolution steps:
+- Restarted the content-entity-service, opera-apollo-subgraphs, and promo service as part of mitigation efforts.
+- Identified the root cause as issues arising from the release activities CHG0048122 and CHG0048174, we have reverted the change post that observing error was stopped."
+"INC0654900","[P-2605141] On-Demand Jobs Finished Abnormally from 07:00 AM to 07:30 AM","issue summary :  On-Demand Jobs Finished Abnormally on 7thMay
+solution provided : An investigation revealed that the on-demand thread for the period 2026-03-11 to 2026-03-12 completed in only 38 minutes, significantly faster than the expected duration. This caused seven jobs to finish before 2:00 AM UTC (3:00 AM BST), triggering the automated alert. To ensure data integrity, these jobs were re-run manually, completing with a normal duration of approximately 1 hour.
+Parent incident : NA
+"
+"INC0654897","[P-2605139]  Request error rate increased in PREMIER INN DE from 06:25?AM to 07:18 AM","issue summary :[P-2605139]  Request error rate increased in PREMIER INN DE from 06:25?AM to 07:18 AM
+solution provided : This issue was caused by the change implemented under CHG0048122 and is currently being investigated under the parent incident INC0654918
+parent incident : INC0654918"
+"INC0654887","[P-2605133]  Failure rate increased in api.premierinn.com from 06:11?AM to 07:25 AM","issue summary :Failure rate increased in api.premierinn.com from 06:11?AM to 07:25 AM
+resolution provided : This issue was caused by the change implemented under CHG0048122 and is currently being investigated under the parent incident INC0654918
+parent incident :INC0654918"
+"INC0654886","[P-2605134] Failure rate increased in opera-apollo-router from 06:12?AM to 07:17 AM","issue summary - [P-2605134] Failure rate increased in opera-apollo-router from 06:12?AM to 07:17 AM
+solution provoided - This issue was caused by the change implemented under CHG0048122 and is currently being investigated under the parent incident INC0654918
+parent incident -INC0654918"
+"INC0654885","[P-2605136] [frontend availability] SLO for premier-inn:premier-inn alert from 06:20?AM to 08:13 AM ","issue summary : [P-2605136] [frontend availability] SLO for premier-inn:premier-inn alert from 06:20?AM to 08:13 AM 
+solution provided : This issue was caused by the change implemented under CHG0048122 and is currently being investigated under the parent incident INC0654918
+parent incident : INC0654918"
+"INC0654868","[P-2605135] [Problem] 100% Failure Rate Increased in api.premierinn.com from 06:19?AM to 07:25 AM","issue summary : [P-2605135] [Problem] 100% Failure Rate Increased in api.premierinn.com from 06:19?AM to 07:25 AM
+solution provided :This issue was caused by the change implemented under CHG0048122 and is currently being investigated under the parent incident INC0654918
+parent incident :INC0654918"
+"INC0654583","[P-2605120] Business Events [4] Processing Stopped from 08:45?PM to 9:10 PM","Resolution steps:
+- Restarted the 'availability-business-events-service-opera-4' service to resume processing of business events."
+"INC0654490","Dear Premier Inn Team,We hope you are doing well.We will appreciate your assistance with the following question reported from the customer Touristmarketing","Root cause:
+The observed behavior occurs because when availability is requested with both DNU and YDB rate codes, only DNU rates are returned in the response, despite Amadeus Hotels 3rd Level confirming both rate codes are correctly included in the request sent to Premier Inn. 
+
+Resolution steps:
+N/A"
+"INC0654335","[P-2605116]  Failure rate increase from 10:43?AM UTC","Issue Summary : Failure rate increase from 10:43?AM UTC
+Solution provided : On initial investigation, it was found that the increased failure rate is due to the get booking information call failing with the error message ""booking reference not found"", along with a java.lang.NullPointerException. Additionally, the booking reference could not be found in Opera, indicating that it is not a confirmed reservation.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0654324","[P-2605110]  Failure rate increase from 10:22?AM UTC","Issue Summary : Failure rate increase from 10:22?AM UTC
+Solution provided : We observed that getReservationsByIds calls are failing with the error: Business exception error code: 16 (internal.server.exception). The debug message indicates that the system could not find the Opera reservation while attempting to fetch reservation details for hotelId=EVEORC and reservationIds=[311538960], resulting in a HotelReservationNotFoundException.
+This issue is not limited to a single basket; it is occurring across multiple cases where timed-out baskets are being used.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0654237","UK | LEETGI | STINEW | PROD - OPERA - Reservations - Digital - Error - Cancellation option missing in PI.com","This ticket was initially created for booking BCY7564166, where the cancel button was not visible. The issue occurred because the booking did not have a cancellation rule attached, and the Channel Allowed option was not enabled under Rate Controls & Web Channels for rate code HAMIFRRO at STINEW (Stirling City Centre).
+This issue has now been resolved by the WB-Commercial Operations (Pricing Systems) Team."
+"INC0654207","[P-2605106] No Booking with Payment from 8:30?AM UTC","Issue Summary : No Booking with Payment from 8:30?AM UTC
+Solution provided : We are successfully able to do pay now test booking for this Hotel COLALB without any issue.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0654195","Premier Inn Business (PIB) DE - Customer is unable to log in via Premier Inn Bus","Issue Summary : Premier Inn Business (PIB) DE - Customer is unable to log in via Premier Inn Bus
+Solution provided : As a workaround, we have added the email to Auth0.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0654184","CCUI_ MANCIT_ Corp. ID 10002663Trying to book one room, one person, 15th - 17th","user conformed its working as expected"
+"INC0654182","Digital - PI.com - guest unable to login | account locked","Resolved due to no response"
+"INC0653813","INC0653813 |   Staines upon Thames [Premier Inn] | BIKP02 | Kiosk - Payments - Kiosk is trying to refund booking fee for business bookings","Hi @Tia Cook This is a known issue. The problem happens because the balance shows a negative balance, likely due to the API process, which is causing payment failures.
+We already have a ticket raised with the WB-Digital-Kiosks team for this issue. This issue will be tracked under the parent ticket-INC0633933.
+
+Hence Closing this incident. Thank you, Sundar M"
+"INC0653798","UK | NORNEL | Opera - wrong address is showing for site on the Opera","issue summary : wrong  address is showing in the invoice
+solution provided : Regarding the doubt you raised, the reservation booker is Liam Tracy and the lead guest is also Liam Tracy. However, the reservation booker address and guest address are different. My assumption is that while the agency was making the booking, they may have entered incorrect details in the guest details section. If the correct address had been entered during the booking process, it would have reflected correctly in the reservation
+parent incident : NA
+"
+"INC0653797","SILGRE | Digital - Business - unable to view booking","Resolved due to no response"
+"INC0653702","[P-260597]  Failure rate increase from 12:45?PM UTC","Issue Summary :  Failure rate increase from 12:45?PM UTC
+Solution provided : During the specified time window, we observed that some getBookingInformation API calls were failing and returning a 400 response code. Further analysis indicated an UnsupportedMediaTypeException. The issue mentioned in the incident was resolved automatically after some time, without any manual intervention.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0653516","UK-BIRPLI||Opera -  employee discount was made and 3 bookings across 2 discount cards  was generated 2 of the rooms were captured correctly as pay on arrival. ","Both Pay now and pay on arrival options are available for the employee offer site. When we select the PIBA card, it only shows Pay on arrival whereas you select the Credit/Debit card you can opt in for pay now or pay on arrival.
+
+Employee information(like job role, place of work, brand etc.,) are updated by the site people during check-in, we are not asking or sharing any employee information during booking journey to OPERA.
+
+Resolving it as confirmed by the caller. "
+"INC0653441","[P-260576] Business Events Processing Stopped from 6:30?AM UTC","Resolution steps:
+- Restarted the 'availability-business-events-service-opera-2' application to resume processing of Business Events."
+"INC0652918","[P-260567] Business Events Processing Stopped from 01:15?PM to 01:50 PM","Issue Summary : Business Events Processing Stopped from 01:15?PM to 01:50 PM
+Solution provided : We restarted the availability-business-events-service-opera-3, and after the restart, we observed that events started streaming from 1:42 PM onwards.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0652800","[P-260564]  Unexpected low traffic in PREMIER INN BOOKER UK from 09:41?AM to 10:39 AM","Issue Summary : Unexpected low traffic in PREMIER INN BOOKER UK from 09:41?AM to 10:39 AM
+Solution provided : As it is an off day in the UK, we received this alert. During this time frame, we did not observe any errors and the availability remained at 100%. We performed a health check and were able to navigate seamlessly up to the payment page without any issues. Therefore, we are reducing the priority to P5. No abnormalities were observed.
+Related Ticket (master incident/change request/ problem) :NA"
+"INC0652656","[P-260559] [Problem] Marketing Access Token Error from 7:07?AM to 7:32 AM UTC","Root cause:
+Invalid token in Redis cache impacted the marketing-service-opera Kubernetes workload, causing the Marketing Access Token Error. 
+
+Resolution steps:
+- Cleared the invalid token from Redis cache around 7:16 AM UTC.
+- New token was populated post clearing the invalid one, resolving the access token error."
+"INC0652268","[P-260545] Drop in Bookings during Business Hours from 07:30 PM to 08:05 PM","Issue Summary : [P-260545] Drop in Bookings during Business Hours from 07:30 PM to 08:05 PM, 3rd May 2026.
+
+Solution Provided : There has been a slight decline in bookings and revenue compared to the previous week, despite a higher number of user sessions. During the affected window (07:00–07:30 UK time), reservations this week totaled 1,328 from 22,235 sessions, whereas last week saw 1,541 reservations from 21,119 sessions. This appears to be driven by user behavior, as no significant errors or anomalies were detected across key service KPIs. Payment conversion remains strong, and all major services are performing without latency. Trends across payment types and options are consistent, with no irregularities observed. The website is functioning normally, and the Adobe team has not reported any concerns. Hence resolving the incident.
+
+Related tickets : NA"
+"INC0651636","Sabre // LGS 09118751 - Unable to book negotiated fare    [ ref:!00D150GKhq.!500Uo0irLQ0:ref ]","Resolved due to no response"
+"INC0651536","Price mismatch observed between SRP and HDP for multiple hotels and rate plans.","Issue summary : Price mismatch observed between SRP and HDP for multiple hotels and rate plans (1st May 2026)
+
+Solution provided : We noticed that there was price mismatches between SRP and HDP for the hotel LONKIN . AvCache DB was not being updated with the latest updates and hence SRP prices were showing some mismatches. Further Ondemand job was run for the affected hotel for 375days from today. Post which, the latest Opera prices (HDP) got updated to the AvCache DB prices (SRP). This resolved the price discrepancies. Hence resolving the incident.
+
+Parent Incident : INC0541949"
+"INC0651513","CNP was deleted","Resolved due to no response"
+"INC0651509","Digital - Business - unable to view booking","Resolved due to no response"
+"INC0651419","[P-26058] No Booking with Payment for BRHPOR, WENSON from 9:30?AM to 9:45 AMUTC","We have reviewed this and observed that both hotels (BRHPOR and WENSON) are not yet live for bookings. However, they are included in AEM for testing purposes."
+"INC0651175","DARBRE | MANDAL | Contact from guests advising they have searched/tried to book future dates and t","As discussed with the caller, the issue appears to be due to user error rather than a system issue. Therefore, the incident is being closed. Please reopen the incident if the issue occurs again"
+"INC0650894","[P-26041119] No Booking with Payment for BRAMUL hotel from 9:30?AM to 9:45 AM UTC","Able to make successful booking this Hotel-BRAMUL With PN and POA .  No issues Observed with payment card"
+"INC0650394","Digital - Business - BA employee unable to amend/cancel on the app","Resolved due to no response"
+"INC0650386","Content not passing in Amadeus from AEM","Resolved due to no response"
+"INC0650322","CUST-FEEDBACK: Digital - Payment completed, but confirmation email not received.","Hi Team, We are closing this incident as this is being addressed already.
+
+Thank you,
+Sundar M"
+"INC0650320","CUST-FEEDBACK: Digital - Unable to Payment using Credit Card","Issue Summary :  Unable to make Payment using Credit Card
+
+Solution Provided :  We reviewed the CSQ recording and noticed that there were two booking attempts being made by the customer. The first (AUK1166003) for Dunfermline via the PI channel failed at the payment stage when using a Mastercard , due to an authorisation decline flagged as ""SCA Requirer"" (fraud check failure). The second attempt (AUK9825158) succeeded using a Visa card . A test booking with our Mastercard was successful, confirming the issue is specific to the user's card rather than the hotel or system. Hence resolving the incident as confirmed with Bryony. 
+ 
+Related tickets : NA"
+"INC0650317","CUST-FEEDBACK: Digital - Unable to Payment  ","Resolved due to no response"
+"INC0650070","Premier Inn Business (PIB) DE - Customer is unable to log in via Premier Inn Bus","We have been added both email in Auth0. Please reset account password any try login. It should work fine. Please reopen the ticket if you face any issue."
+"INC0649543","[CTECH-8677]rates not returning in Amadeus for PI WENSON","configuration updated"
+"INC0649065","Digital - Business - booking missing from dashboard","Resolved due to no response"
+"INC0648897","Hi Ben, Please see below: This is the error response that we are getting from PI during room booking process:                 Card not Valid      ","Resolved due to no response"
+"INC0648851","WHB||Opera - Promos/Rates - Rate Management Issue","Root cause:
+A cancellation policy discrepancy in OPERA was reported where reservations created via Pi.com/BB under the Standard rate code were showing 100% refunds after cancellation, conflicting with the Standard rate T&amp;Cs. 
+
+Resolution steps:
+- Verified with the caller that reservations showed 100% refunds after cancellation despite policy expectations
+- Assigned the incident to the digital team for further investigation
+- Notified the pricing team and digital team to review the discrepancy
+- Added Anja Vick (anja.vick@whitbread.com) to the incident watch list"
+"INC0648452","UK - EASCRO || Guests cannot book meal deals on the website, and we cannot process a meal deal on opera","Resolved by caller"
+"INC0647339","HTML component in Author (AEM) is not processing code correctly","The engineering team is aware of the issue and has implemented a fix. The fix went live and is working as expected. I have verified this."
+"INC0647338","CCUI_ MUNCIT_ CCUI shows barrierfree double room for 1 adult and 1 childAgent ","We have verified this case with the Product team, and they have confirmed that the behaviour is working as per the current design. This functionality is agreed and implemented to help avoid booking loss."
+"INC0647334","DE | WIECIT | CCUI_ OPERA_ GBQ1304714 ID&V does not show address data and phone numberGBQ130","Hi  Vivien Jösting,
+If you encounter any similar issues in the future, kindly raise a new incident and inform us so we can assist you promptly.
+
+Root cause:
+The address data and phone number were not displayed correctly in the CCUI ID&V window for booking GBQ1304714 due to routing instructions not being set correctly during the booking journey."
+"INC0647147","Issue picked up in Content Square recording, where a customer was held for a long time on the confirmation page","Resolved due to no response"
+"INC0647140","PIB - Bookings / Reservation Management -  Error message appears when clicking ","issue summary : Unable to amend booking in PIB and returns error
+solution provided : Opera has a validation rule that limits the last-name field to a maximum of 22 characters, and spaces are counted as characters. In this case, the existing name totals 25 characters, which causes the validation issue. and returns error when clicking edit booking button in PIB
+parent incident : NA"
+"INC0646895","Amadeus returning no rates when the negotiated rate requested is unavailable","Resolved due to no response"
+"INC0646678","UK | Kiosk payment showing incorrect amount on Opera.BKU5109010 / #INC-10575","Resolved due to no response"
+"INC0645521","DE | Cancellation charge for ADVANCED rate is wrong in Opera. Per our t&c it should be 90% of total, Opera only calculates 90% of 1st night","Resolved due to no response"
+"INC0644573","DE | STUACO | Reservation of The hotel was not found in our system.","Resolved due to no response"
+"INC0638643","[Alert] Observed an increase in CCUI load from 12:32 AM to 01:13 AM","We usually don't see any traffic from CCUI out of business hours. We observed spike in traffic between 12:30 AM and 01:15 AM on 9th April which is strange and almost all the calls were related ""api/auth/login?returnTo=%2F""
+
+We verified it with the contact centre person working in Germany, Cairo and UK.But no one was using it and there is no scheduled jobs running as confirmed by them. We also don't have any evidence to prove that it is BOT or anything suspicious. Considering that there is no impact to the application and no sufficient to investigate further resolving  the incident
+
+Thanks
+Annamalai"
+"INC0633719","NT call Roomex/Premier Inn 01.04.26","This will be tracked under INC0662657. Hence closing this incident."
+"INC0633285","UK | CARROA | Opera - Bookings - Check Out Issue","Resolved due to no response"
+"INC0623785","[CTECH-7036] Update deployment health check alert ","Issue Summary : Discrepancy in the deployment counts (captured by the CE team alerts) between WANDA and HULK. 
+
+Solution Provided :  As part of the recent deployment, SRE team introduced a new service, ddb-stream-basket-to-dt, in the HULK cluster. This service is designed to capture DynamoDB data and push it into Dynatrace as metrics, and by design, it runs only in HULK. Due to this cluster-specific deployment, a discrepancy was observed in the deployment counts between WANDA and HULK. To address this, the CE team excluded the service from alerts, and the SRE team deployed it in WANDA as part of CHG0048340. With these actions, the deployment counts are now aligned. Hence resolving the incident.
+
+Related Tickets : CHG0048340"
